@@ -1,0 +1,26 @@
+/app
+    setup.py
+    run.py
+    .gitignore
+    /portfolio
+        __init__.py
+        /database
+            portfolio.db
+       /forms
+            forms.py
+        /routes
+            views.py
+        /static
+            /css
+            /img
+            /js
+            /scss
+            /vendor
+        /templates
+    /tests
+
+        
+
+
+
+https://stackoverflow.com/questions/9692962/flask-sqlalchemy-import-context-issue/9695045#9695045
