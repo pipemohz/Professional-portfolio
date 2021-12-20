@@ -25,11 +25,20 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <form method="post" action="{{ url_for('add')}}">
+        <form method="post" action="{{ url_for('add')}}" novalidate>
           {{ form.csrf_token }} 
           <div>{{ form.title.label(class="form-control-label") }} {{ form.title(class="form-control form-control-lg") }}</div>
+          {% for error in form.title.errors: %}
+            <span style="color: red">{{ error }}</span>
+          {% endfor %}
           <div>{{ form.description.label(class="form-control-label") }} {{ form.description(class="form-control form-control-lg") }}</div>
+          {% for error in form.description.errors: %}
+            <span style="color: red">{{ error }}</span>
+          {% endfor %}
           <div>{{ form.url.label(class="form-control-label") }} {{ form.url(class="form-control form-control-lg") }}</div>
+          {% for error in form.url.errors: %}
+            <span style="color: red;">{{ error }}</span>
+          {% endfor %}
           <div><button type="button" id="addNewField">Add language</button></div> 
           {{ form.languages }}
           {{ form.submit }}

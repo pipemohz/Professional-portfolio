@@ -18,10 +18,13 @@ def index():
 def contact():
     return render_template('contact.html')
 
+#FIXME: Error in delete button for languages field after validation of form
+
 @app.route('/add', methods=['GET', 'POST'])
 def add():
     form = ProjectForm()
-    if request.method == 'POST':
-        
+    if form.validate_on_submit():
+        for entry in form.languages.entries:
+            print(entry.data)
         return redirect(url_for('index'))
     return render_template('add.html', form=form)

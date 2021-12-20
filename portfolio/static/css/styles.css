@@ -212,3 +212,16 @@
  .release_date {
 	 font-weight: normal;
 }
+
+#languages{
+	list-style-type: none;
+}
+
+li{
+	margin-bottom: 1rem;
+}
+
+#addNewField{
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}

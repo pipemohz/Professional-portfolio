@@ -1,10 +1,7 @@
-$(document).ready(function() {
-    var counter=1;
-    $("#addNewField").click(function() {
-        var newInput = $("<li><input required type='text' value=''></input><input type='button' value='Remove' class='remove'></input></li>")
-            .attr("id", "languages" + "-" + counter)
-            .attr("name", "languages" + "-" + counter)
-        $("#languages").append(newInput);
+$(document).ready(function () {
+    var counter = 1;
+    $("#addNewField").click(function () {
+        $("#languages").append('<li><input type="text" id="languages-' + counter + '"' + 'name="languages-' + counter + '"' + 'required ' + 'value' + "/>" + "<input type='button' value='Remove' class='remove'></input>" + "</li>");
         counter += 1;
     });
 
