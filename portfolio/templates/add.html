@@ -41,6 +41,9 @@
           {% endfor %}
           <div><button type="button" id="addNewField">Add language</button></div> 
           {{ form.languages }}
+          {% for language in form.languages: %}
+            <input type="button" value="Remove" class="remove">
+          {% endfor %}
           {{ form.submit }}
         </form>
       </div>
