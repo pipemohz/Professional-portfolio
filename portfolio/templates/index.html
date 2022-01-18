@@ -27,21 +27,19 @@
               <p class="large">{{ project.id }}</p>
           </div>
           <div class="back">
-            <div>
-          <div class="title">Drive <span class="release_date">(2011)</span></div>
-              <div class="rating">
-                  <label>7.5</label>
-                <i class="fas fa-star star"></i>
+          <div class="content">
+            <div class="title">{{ project.title }}</div>
+                <div class="rating">
+                    <label>7.5</label>
+                  <i class="fas fa-star star"></i>
+                </div>
+                <p><a href="{{project.url}}">{{project.url}}</a></p>
+                <p class="overview">
+                    {{ project.description }}
+                </p>
+                <a href="{{ url_for('edit', id=project.id) }}" class="button">Edit</a>
+                <a href="{{ url_for('delete',id=project.id)}}" class="button delete-button">Delete</a>
               </div>
-              <p><a href="{{project.url}}">{{project.url}}</a></p>
-              <p class="overview">
-                  {{ project.description }}
-              </p>
-      
-              <a href="#" class="button">Update</a>
-              <a href="#" class="button delete-button">Delete</a>
-      
-            </div>
           </div>
         </div>
       {% endfor %}

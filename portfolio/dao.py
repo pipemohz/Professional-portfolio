@@ -1,3 +1,4 @@
+from os import name
 from portfolio import db
 from portfolio.models.language import Language
 from portfolio.models.project import Project
@@ -24,10 +25,34 @@ def create_project(form: ProjectForm):
 
         else:
             language = Language(
-                name=entry.data
+                name=entry.data.lower()
             )
 
         project.languages.append(language)
 
     db.session.add(project)
     db.session.commit()
+
+def delete_project(project_id: int):
+    project = db.session.query(Project).get(project_id)
+    db.session.delete(project)
+    db.session.commit()
+
+def update_project(project_id:int, form:ProjectForm):
+    project = db.session.query(Project).get(project_id)
+    project.title = form.title.data
+    project.description = form.description.data
+    project.url = form.url.data
+
+    for entry in form.languages.entries:
+        if language_exists(entry.data):
+            language = language_exists(entry.data)
+        else:
+            language = Language(
+                name = entry.data.lower()
+            )
+
+        project.languages.append(language)
+
+    db.session.commit()
+

@@ -5,7 +5,7 @@
 #COMPLETED 2: Create a general config file
 #COMPLETED 3: Create a form classes file
 
-#IN PROCESS: Define routes of website
+#TODO 4: Define routes of website
 
 from portfolio import app
 

@@ -144,3 +144,6 @@ cython_debug/
 
 models.py
 data.py
+
+# database files
+/portfolio/database/portfolio.db
