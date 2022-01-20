@@ -11,4 +11,3 @@ class Project(db.Model):
     description = db.Column(db.String(250), nullable=False)
     url = db.Column(db.String(2000), nullable=False)
     languages = relationship("Language", secondary=association_table)
-    
