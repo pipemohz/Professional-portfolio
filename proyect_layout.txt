@@ -1,13 +1,30 @@
 /app
-    setup.py
-    run.py
+    .env
     .gitignore
-    /portfolio
+    config.py
+    portfolios.db
+    requirements.txt
+    run.py
+    /migrations
+        alembic.ini 
+        env.py
+        script.py.mako
+        /versions
+    /portfolios
         __init__.py
-        /database
-            portfolio.db
-       /forms
+        dao.py
+        db.py
+        email.py
+        /forms
             forms.py
+        /main
+            __init__.py
+        /models
+            language.py
+            portfolio.py
+            project_language.py
+            project.py
+            user.py
         /routes
             views.py
         /static
@@ -18,9 +35,4 @@
             /vendor
         /templates
     /tests
-
-        
-
-
-
-https://stackoverflow.com/questions/9692962/flask-sqlalchemy-import-context-issue/9695045#9695045
+        test.py

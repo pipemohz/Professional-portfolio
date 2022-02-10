@@ -1,0 +1,61 @@
+{% include "header.html" %}
+
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('/static/img/developer-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Professional portfolio</h1>
+            <span class="subheading">Everyone will know about your skills!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="container">
+      <h1 class="heading">Portfolios management</h1>
+      <div class="container">
+        {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+      </div>
+      <p class="description">These are your portfolios:</p>
+      {% if portfolios: %}
+        {% for portfolio in portfolios: %} 
+          <div class="card" >
+            <div class="front" style="background-image: url('https://www.shortlist.com/media/images/2019/05/the-30-coolest-alternative-movie-posters-ever-2-1556670563-K61a-column-width-inline.jpg');">
+                <p class="large">{{ loop.index }}</p>
+            </div>
+            <div class="back">
+              <div class="content">
+                <div class="title"> <a href="{{ url_for('.portfolio_view', portfolio_id=portfolio.id)}}">{{ portfolio.title }}</a></div>
+                      <div class="rating">
+                          <label>7.5</label>
+                        <i class="fas fa-star star"></i>
+                      </div>
+                      <a href="{{ url_for('.delete_port', portfolio_id=portfolio.id)}}" class="button delete-button">Delete</a>
+                </div>
+              </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    {% if current_user.is_authenticated: %}
+      <div class="container text-center add">
+        <a href="{{ url_for('.create') }}" class="button">Create portfolio</a>
+      </div>
+    {% endif %}
+  </div>
+  <hr>
+
+{% include "footer.html" %}

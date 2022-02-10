@@ -1,12 +1,17 @@
-# TODO 1: Work in a infrastructure like OJS
-# COMPLETED: Create a file with DAO functions
-# COMPLETED: Secure access to admin routes
-# COMPLETED: Create a views file for website routing
-# COMPLETED: Create a general config file
-# COMPLETED: Create a form classes file
-# COMPLETED: Define routes of website
+import os
+import sys
+from portfolios import create_app
+from portfolios.db import db
+from flask_script import Manager
+from flask_migrate import Migrate
+from flask.cli import cli
 
-from portfolio import app
+
+app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+manager = Manager(app)
+migrate = Migrate(app, db)
+
+cli.main(args=sys.argv[1:])
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', debug=True)
+    manager.run()
